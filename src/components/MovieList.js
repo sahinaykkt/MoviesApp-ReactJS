@@ -1,6 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MovieList = (props) => {
+  const truncateOverview = (string, maxLength) => {
+    if (!string) return null;
+    if (string.length <= maxLength) return string;
+    return `${string.substring(0, maxLength)} ...`;
+  };
+
   return (
     <div className="row">
       {props.movies.map((movie, i) => (
@@ -13,7 +20,9 @@ const MovieList = (props) => {
             />
             <div className="card-body">
               <h5 className="card-title">{movie.name}</h5>
-              <p className="card-text">{movie.overview}</p>
+              <p className="card-text">
+                {truncateOverview(movie.overview, 100)}
+              </p>
               <div className="d-flex justify-content-between align-items-center">
                 <button
                   onClick={(event) => props.deleteMovieProp(movie)}
@@ -22,6 +31,13 @@ const MovieList = (props) => {
                 >
                   Delete
                 </button>
+                <Link
+                  to={`edit/${movie.id}`}
+                  type="button"
+                  className="btn btn-md btn-outline-primary mr-5"
+                >
+                  Edit
+                </Link>
                 <h2>
                   <span className="badge badge-info">{movie.rating}</span>
                 </h2>

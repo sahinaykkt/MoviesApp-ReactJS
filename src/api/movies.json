@@ -1,11 +1,11 @@
 {
   "movies": [
     {
-      "id": 1,
       "name": "The Flash",
       "rating": 8.3,
       "overview": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg"
+      "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg",
+      "id": 1
     },
     {
       "id": 2,
@@ -36,17 +36,17 @@
       "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/TnOeov4w0sTtV2gqICqIxVi74V.jpg"
     },
     {
-      "id": 6,
       "name": "Superman",
       "rating": 7.6,
       "overview": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/6Bbq8qQWpoApLZYWFFAuZ1r2gFw.jpg"
+      "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/6Bbq8qQWpoApLZYWFFAuZ1r2gFw.jpg",
+      "id": 6
     },
     {
       "name": "Şakir the Clumsy",
       "rating": "7.7",
+      "overview": "Merhaba, who lives in Kayseri, has a great legacy from his uncle who died in Istanbul. His uncle sends a telegram to Kayseri and dies before seeing Şakir, but a relative who does not want to share the legacy begins to make plans to eliminate him.",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5NI4VJJumCxUyb55NMhIqRuQIY.jpg",
-      "overview": "Şakir, who lives in Kayseri, has a great legacy from his uncle who died in Istanbul. His uncle sends a telegram to Kayseri and dies before seeing Şakir, but a relative who does not want to share the legacy begins to make plans to eliminate him.",
       "id": 7
     }
   ]
