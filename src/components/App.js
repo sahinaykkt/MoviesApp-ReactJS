@@ -1,7 +1,9 @@
 import React from "react";
 import MovieList from "./MovieList";
 import SearchBar from "./SearchBar";
+import AddMovie from "./AddMovie";
 import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = {
@@ -24,6 +26,13 @@ class App extends React.Component {
     this.setState({ searchQuery: event.target.value });
   };
 
+  AddMovie = async (movie) => {
+    await axios.post(`http://localhost:3002/movies/`, movie);
+    this.setState((state) => ({
+      movies: state.movies.concat([movie]),
+    }));
+  };
+
   render() {
     let filteredMovies = this.state.movies.filter((movie) => {
       return (
@@ -34,14 +43,41 @@ class App extends React.Component {
     });
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <SearchBar searchMovieProp={this.searchMovie} />
-          </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={() => (
+                <>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <SearchBar searchMovieProp={this.searchMovie} />
+                    </div>
+                  </div>
+                  <MovieList
+                    movies={filteredMovies}
+                    deleteMovieProp={this.deleteMovie}
+                  />
+                </>
+              )}
+            ></Route>
+            <Route
+              path="/add"
+              exact
+              render={({ history }) => (
+                <AddMovie
+                  onAddMovie={(movie) => {
+                    this.AddMovie(movie);
+                    history.push("/");
+                  }}
+                />
+              )}
+            ></Route>
+          </Switch>
         </div>
-        <MovieList movies={filteredMovies} deleteMovieProp={this.deleteMovie} />
-      </div>
+      </Router>
     );
   }
 }
